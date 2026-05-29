@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mall-redis:
+    image: redis:7
+    container_name: mall-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - mall-network
+    restart: unless-stopped
+
+  mall-nacos:
+    image: nacos/nacos-server:v2.3.0
+    container_name: mall-nacos
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    environment:
+      - MODE=standalone
+      - JVM_XMS=256m
+      - JVM_XMX=512m
+    volumes:
+      - nacos_data:/home/nacos/data
+    networks:
+      - mall-network
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  nacos_data:
+
+networks:
+  mall-network:
+    driver: bridge

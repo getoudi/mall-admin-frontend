@@ -1,8 +1,36 @@
+# Dependencies
 node_modules/
+
+# Build outputs
 build/
 dist/
-coverage/
-.DS_Store
-*.log
+target/
+
+# Environment files
 .env*
 !.env.example
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Java
+*.class
+*.jar
+*.war
+
+# Maven
+mall-parent/**/target/
+
+# Coverage
+coverage/

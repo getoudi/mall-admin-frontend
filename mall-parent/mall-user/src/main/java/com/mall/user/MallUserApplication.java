@@ -1,0 +1,16 @@
+package com.mall.user;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@MapperScan("com.mall.user.mapper")
+@ComponentScan(basePackages = {"com.mall.user", "com.mall.common"})
+public class MallUserApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MallUserApplication.class, args);
+    }
+}

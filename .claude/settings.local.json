@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn validate *)",
+      "Bash(mvn help:effective-pom -pl mall-common)",
+      "Bash(mvn install *)",
+      "Bash(mvn compile *)",
+      "Bash(mysql *)",
+      "Bash(java -jar mall-cart/target/mall-cart-1.0.0.jar)",
+      "Bash(curl -s http://localhost:8003/actuator/health)",
+      "Bash(java -jar mall-stock/target/mall-stock-1.0.0.jar)",
+      "Bash(curl -s http://localhost:8005/actuator/health)",
+      "Bash(java -jar mall-gateway/target/mall-gateway-1.0.0.jar)",
+      "Bash(curl -s http://localhost:9000/actuator/health)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s http://localhost:8002/api/product/list)",
+      "Bash(curl -s http://localhost:8002/product/list)",
+      "Bash(mvn package *)",
+      "Bash(mvn spring-boot:run)",
+      "Bash(java -jar mall-user/target/mall-user-1.0.0.jar)",
+      "Bash(java -jar mall-product/target/mall-product-1.0.0.jar)",
+      "Bash(java -jar mall-order/target/mall-order-1.0.0.jar)",
+      "Bash(java -jar mall-payment/target/mall-payment-1.0.0.jar)",
+      "Bash(findstr \":800[1-6]\\\\|:9000\\\\|:3000\")",
+      "Bash(findstr \"LISTENING\")",
+      "Bash(taskkill *)",
+      "Bash(mvn clean *)",
+      "Bash(curl *)",
+      "Bash(start cmd *)",
+      "Bash(tasklist *)",
+      "Bash(java -jar target/mall-user-1.0.0.jar)",
+      "Read(//tmp/**)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \"800[1-6] 9000\")",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

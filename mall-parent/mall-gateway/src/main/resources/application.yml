@@ -1,0 +1,68 @@
+server:
+  port: 9000
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+  application:
+    name: mall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: mall-user
+          uri: http://localhost:8001
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=1
+        - id: mall-address
+          uri: http://localhost:8001
+          predicates:
+            - Path=/api/address/**
+          filters:
+            - StripPrefix=1
+        - id: mall-product
+          uri: http://localhost:8002
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - StripPrefix=1
+        - id: mall-cart
+          uri: http://localhost:8003
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - StripPrefix=1
+        - id: mall-order
+          uri: http://localhost:8004
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=1
+        - id: mall-stock
+          uri: http://localhost:8005
+          predicates:
+            - Path=/api/stock/**
+          filters:
+            - StripPrefix=1
+        - id: mall-payment
+          uri: http://localhost:8006
+          predicates:
+            - Path=/api/payment/**
+          filters:
+            - StripPrefix=1
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+  data:
+    redis:
+      host: localhost
+      port: 6379
